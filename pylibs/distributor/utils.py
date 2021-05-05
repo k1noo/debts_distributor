@@ -1,4 +1,5 @@
 import logging
+import uuid
 
 
 def get_logger(object_name: str, level=logging.INFO):
@@ -11,5 +12,9 @@ def get_logger(object_name: str, level=logging.INFO):
     return logger
 
 
-def generate_user_id(name: str, index: int):
-    return name.lower() + "_" + str(index)
+def generate_random_id():
+    return str(uuid.uuid4())[-8:]
+
+
+def is_zero(x: float):
+    return abs(x) <= 1e-6
